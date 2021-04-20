@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- THE HEAD TAG PARTIAL -->
+<%- include("../partials/head") %>
+
+<body>
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("../partials/header") %>
+
+    <a href ="/reminder"><button>Back to Main Page</button></a>
+
+    <h1>Edit Reminder</h1>
+
+    <form action="/reminder/<%=editRemind%>?_method=PUT" method="POST">
+        Title: <input type="text" name="title" value = ""   /><br />
+        Notes: <input type="text" name="note" value = "" /><br />
+        <input type="submit" name="" value="Submit changes" />
+    </form>
+
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("../partials/footer") %>
+</body>
+</html>

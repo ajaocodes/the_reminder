@@ -4,24 +4,32 @@ const mongoose = require("./connection");
 ///////////////////////////////////////////
 // IMPORT YOUR MODELS BELOW
 ///////////////////////////////////////////
+const Reminder = require("../models/reminder");
+const User = require("../models/user");
 
-///////////////////////////////////////////
-// DO YOUR DATABASE OPERATIONS IN BELOW FUNCTION
-///////////////////////////////////////////
-
+/////////////////////////////////
+// Do your Database Operations in Below Function
+/////////////////////////////////
 const seed = async () => {
+  //--- CODE GOES HERE
+
   // Drop the Database before seeding
   mongoose.connection.db.dropDatabase();
+  
+  const reminder = await Reminder.create([
+    {title: "test 1", note: "this thing better work"},
+    {title: "test 2", note: "this thing better work 2"},
+    {title: "test 3", note: "this thing better work 3"},
+  ])
 
-  //*********Code Goes Here
+  console.log(reminder)
+    //***************************** */
 
-  //***************************** */
-
-  mongoose.disconnect();
-};
-
-// Wait for the DB Connection to be Established
-mongoose.connection.on("open", () => {
-  // Run Seed Function
-  seed();
-});
+    mongoose.disconnect();
+  };
+  
+  // Wait for the DB Connection to be Established
+  mongoose.connection.on("open", () => {
+    // Run Seed Function
+    seed();
+  });

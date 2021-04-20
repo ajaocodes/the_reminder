@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- THE HEAD TAG PARTIAL -->
+<%- include("../partials/head") %>
+
+<body>
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("../partials/header") %>
+
+    <h1>New Reminder</h1>
+    <form action="/reminder" method="POST">
+      Title: <input type="text" name="title" /><br />
+      Notes: <input type="text" name="note" /><br />
+      <input type="submit" name="" value="Create Reminder" />
+    </form>
+
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("../partials/footer") %>
+</body>
+</html>
