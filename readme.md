@@ -1,13 +1,22 @@
-# BOILERPLATE DIRECTIONS
+# The Reminder APP
 
-- clone with command `npx degit githubusername/githubreponame#branchname projectName`
+- The app is designed to help its users track and save any information privately. 
 
-- cd into new project folder
+## Images of the reminder app
+Sign up or Login Page
 
-- run `npm install` to install dependencies
+User Profile Page
 
-- rename template.env to .env
+Add Reminder Page
 
-- make sure to replace MONGODB_URL with a working Mongo URL
+## Language used
+- Javascript
+- Mongoose
+- CSS
+- express
+- HTML
 
-- enjoy!
+### Future Addition
+- Add URL and Priority check box
+- See alarm if reminder is due at a certain time.
+- Can share reminder amongst users if needed. 

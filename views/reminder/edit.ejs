@@ -12,10 +12,10 @@
 
     <h1>Edit Reminder</h1>
 
-    <form action="/reminder/<%=editRemind%>?_method=PUT" method="POST">
-        Title: <input type="text" name="title" value = ""   /><br />
-        Notes: <input type="text" name="note" value = "" /><br />
-        <input type="submit" name="" value="Submit changes" />
+    <form action="/reminder/<%=reminder._id%>?_method=PUT" method="POST">
+        Title: <input type="text" name="title" placeholder="title" value="<%= reminder.title %>"   /><br />
+        Notes: <input type="text" name="note" placeholder="note" value="<%= reminder.note %>" /><br />
+        <input type="submit" name="" value= "Update Reminder" />
     </form>
 
     <!-- THE HEAD TAG PARTIAL -->
