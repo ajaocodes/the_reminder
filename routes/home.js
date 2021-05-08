@@ -4,7 +4,6 @@
 const router = require("express").Router()
 const bcrypt = require("bcryptjs")
 const User = require("../models/user")
-const Reminder = require("../models/reminder");
 
 /////////////////////////////////
 // Custom Middleware Functions
@@ -105,8 +104,10 @@ router.get("/auth/logout", (req, res) => {
 
 //index reminder
 router.get ("/reminder", isAuthorized, async (req, res) => {
+
+const user = await User.findOne({ username: req.user.username })
     // pass req.user to our template
-    res.render("reminder", {reminder: req.user.reminder})
+    res.render("reminder", {reminder: user.reminder})
    })
 
 //new reminder
@@ -115,22 +116,22 @@ router.get ("/reminder", isAuthorized, async (req, res) => {
 });
 
 // Delete
- router.delete ("/:id", isAuthorized, async (req, res) => {
+ router.delete ("/reminder/:id", async (req, res) => {
     const id = req.params.id
     const user = await User.findOne({ username: req.user.username })
-    const index = req.user.reminder.findIndex((reminder) => { id === `${reminder._id}`})
-    user.reminder.splice(index, 1)
-    await user.save()
+    const index = user.reminder.findIndex((reminder) => `${reminder._id}`=== id )
+    req.user.reminder.splice(index, 1)
+    req.user.save()
     res.redirect("/reminder")
   });
 
 // Update
-router.put ("/:id", isAuthorized, async (req, res) => {
+router.put ("/reminder/:id", isAuthorized, async (req, res) => {
     const user = await User.findOne({ username: req.user.username })
     const id = req.params.id
     const index = req.user.reminder.findIndex((reminder) => `${reminder._id}` === id)
     req.user.reminder[index].title = req.body.title
-    req.user.reminder[index].body = req.body.body
+    req.user.reminder[index].note = req.body.note
     req.user.save()
     res.redirect(`/reminder/${id}`)
 })
@@ -139,32 +140,33 @@ router.put ("/:id", isAuthorized, async (req, res) => {
 router.post ( "/reminder", isAuthorized,  async (req, res) => {
     // fetch up the current user
     const user = await User.findOne({ username: req.user.username })
-    
     user.reminder.push(req.body)
     await user.save()
     res.redirect("/reminder")
 })
 
 // Edit
-router.get("/:id/edit", isAuthorized, async (req, res) => {
+router.get("/reminder/:id/edit", isAuthorized, async (req, res) => {
     const user = await User.findOne({ username: req.user.username })
     const id = req.params.id
     const index = req.user.reminder.findIndex((reminder) => `${reminder._id}` === id)
     const reminder =req.user.reminder[index]
-    console.log(reminder)
-    res.render("reminder edit", {reminder})
+    res.render("reminder/edit", {reminder})
 })
 
-// res.send("edit page")})
+
 
 // Show (reminder page)
-router.get ("/:id",isAuthorized, async (req, res) => {
+router.get ("/reminder/:id", async (req, res) => {
     const user = await User.findOne({ username: req.user.username })
     const id = req.params.id
     const index = req.user.reminder.findIndex((reminder) => `${reminder._id}` === id)
-    const reminders = req.user.reminder[index]
-    res.render("reminder/show", {reminders})
-     })
+  console.log(index)
+  const reminder = req.user.reminder[index]
+  
+    res.render("reminder/show", {reminder})
+  })
+    
 
 
 

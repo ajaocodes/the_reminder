@@ -18,13 +18,15 @@
       <ul>
 
         See all reminders below:
+        <%= console.log(reminder.id) %>
 
         <ul>
           <% for (let i=0; i < reminder.length; i++) { %>
-            <%= console.log(reminder[i]._id) %>
-                <a href="/reminder/<%= reminder[i]._id %>"><%= reminder[i].title %></a> <br>
+      
+                <a href="/reminder/<%= reminder[i].id %>"><%= reminder[i].title %></a> <br>
+              <a href ="/reminder/<%= reminder[i].id %>/edit"><button>Edit Reminder</button></a>
 
-              <form action="/reminder/<%= reminder._id %>?_method=delete" method="post">
+              <form action="/reminder/<%= reminder[i]._id %>?_method=delete" method="post">
                 <input class="button" type="submit" value="Delete Reminder" />
             </form>
            <% } %>
