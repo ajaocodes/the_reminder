@@ -21,5 +21,7 @@ Add Reminder Page
 
 ### Future Addition
 - Add URL and Priority check box
-- See alarm if reminder is due at a certain time.
+- Set alarm if reminder is due at a certain time.
 - Can share reminder amongst users if needed. 
+- Add the date feature for when a reminder was added.
+
