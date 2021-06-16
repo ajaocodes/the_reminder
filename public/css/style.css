@@ -1,15 +1,36 @@
-h1 {
+
+/* h1 {
 font-size: x-large;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 padding:20px;
 text-align: center;
 color: blue;
+} */
+
+.title {
+    color: red
 }
 
-l1 {
-    color: black
-}
-
-main.userlog {
+main {
     text-align: center;
+    margin: 10px;
+    min-height: 60vh;
+}
+
+.userlog {
+    display: block !important;
+    margin: 7px auto;
+    max-width: 40% !important;
+}
+
+.userlog2 {
+    display: inline;
+    margin: 7px auto;
+    max-width: 40% !important;
+}
+
+.line{
+    display:flow-root;
+    flex-wrap: wrap;
+    margin: 7px auto;
 }

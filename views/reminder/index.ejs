@@ -5,34 +5,41 @@
 <%- include("../partials/head") %>
 
 <body>
+  <div class="container">
       <!-- THE HEADER TAG PARTIAL -->
       <%- include("../partials/header") %>
-
-      <a href ="/reminder/new"><button>Add a Reminder</button></a>
+    
+      <div> 
+      <a href ="/reminder/new"><button class="button is-success">Add a Reminder</button></a>
 
       <a href="/auth/logout"><button class="button">Logout</button></a>
 
+    </div>
       
 
-    <h1>Welcome to the Reminder App</h1><br>
-      <ul>
+    <h1 class='title is-center'>Welcome to the Reminder App</h1>
+    <br>
+      <ul class = "subtitle">
 
         See all reminders below:
-        <%= console.log(reminder.id) %>
 
         <ul>
           <% for (let i=0; i < reminder.length; i++) { %>
-      
-                <a href="/reminder/<%= reminder[i].id %>"><%= reminder[i].title %></a> <br>
-              <a href ="/reminder/<%= reminder[i].id %>/edit"><button>Edit Reminder</button></a>
-
+                <a href="/reminder/<%= reminder[i].id %>"class="subtitle is-3"> * <%= reminder[i].title %></a> <br>
+                <div class = "line">
+              <a href ="/reminder/<%= reminder[i].id %>/edit"><button class="button is-info is-small">Edit Reminder</button></a>
+            </div>
               <form action="/reminder/<%= reminder[i]._id %>?_method=delete" method="post">
-                <input class="button" type="submit" value="Delete Reminder" />
+                <div class = "line">
+                <input class="button is-danger is-small" type="submit" value="Delete Reminder" />
+              </div>
             </form>
            <% } %>
           </ul>
      
     </ul>
+
+  </div>
 
       <!-- THE HEAD TAG PARTIAL -->
       <%- include("../partials/footer") %>

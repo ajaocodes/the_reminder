@@ -5,12 +5,12 @@
     <body>
         <!-- THE HEADER TAG PARTIAL -->
         <%- include("../partials/header") %>
-        <main class ="userlog">
-            <h1>User Login</h1>
+        <main>
+            <h1 class = "title">User Login</h1>
             <form action="/auth/login" method="post">
-              <input type="text" placeholder="username" name="username" /> <br>
-              <input type="password" placeholder="password" name="password" />
-              <input type="submit" value="login" />
+              <input class = "userlog" type="text" placeholder="type username" name="username" />
+              <input class = "userlog" type="password" placeholder="password" name="password" />
+              <input  class = "button is-primary is-outlined is-small is-hoverable" type="submit" value="login" />
             </form>
         </main>
         <!-- THE HEAD TAG PARTIAL -->

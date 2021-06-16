@@ -5,17 +5,26 @@
 <%- include("../partials/head") %>
 
 <body>
+    <div class="block">
+        
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("../partials/header") %>
 
-    <a href ="/reminder"><button>Back to Main Page</button></a>
+    <a href ="/reminder"><button class="button is- is-medium is-center">Back to Main Page</button></a>
 
-    <h1>Show Reminder</h1>
-    
+    <h1>See your Reminder</h1>
+    <div class="container">
+        <div class="card">
+    <div class="card-content is-warning"></div>
     <h2><%= reminder.title %></h2>
     <p><%= reminder.note %></p>
-
+</div>
+</div>
+</div>
+<br><br><br><br><br><br>
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("../partials/footer") %>
+
+</div>
 </body>
 </html>

@@ -51,7 +51,6 @@ router.post("/auth/signup", async (req, res) => {
         const salt = await bcrypt.genSalt(10)
         // hash the password
         req.body.password = await bcrypt.hash(req.body.password, salt)
-        console.log(req.body)
         // create the new user
         await User.create(req.body)
         // res.redirect

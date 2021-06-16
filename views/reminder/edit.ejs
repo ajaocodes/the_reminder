@@ -8,14 +8,16 @@
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("../partials/header") %>
 
-    <a href ="/reminder"><button>Back to Main Page</button></a>
+    <a href ="/reminder"><button class ="button is-outlined is-small">Back to Main Page</button></a>
+    
+    <br> <br>
 
-    <h1>Edit Reminder</h1>
+    <h1 class = "title">Edit Reminder</h1>
 
     <form action="/reminder/<%=reminder._id%>?_method=PUT" method="POST">
-        Title: <input type="text" name="title" placeholder="title" value="<%= reminder.title %>"   /><br />
-        Notes: <input type="text" name="note" placeholder="note" value="<%= reminder.note %>" /><br />
-        <input type="submit" name="" value= "Update Reminder" />
+        Title: <input class = "userlog2" type="text" name="title" placeholder="title" value="<%= reminder.title %>"   /><br />
+        Notes: <input  class = "userlog2" type="text" name="note" placeholder="note" value="<%= reminder.note %>" /><br />
+        <input  class = "button is-success" type="submit" name="" value= "Update Reminder" />
     </form>
     
 
