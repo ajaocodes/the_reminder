@@ -34,3 +34,7 @@ main {
     flex-wrap: wrap;
     margin: 7px auto;
 }
+
+.card{
+    text-align: center;
+}
